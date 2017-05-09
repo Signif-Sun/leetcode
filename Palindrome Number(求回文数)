@@ -1,0 +1,18 @@
+#include <iostream>
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    int sum = 0;
+	int temp = x;
+	while (x > 0)
+	{
+//内部一起判断，否则多运算一次
+		sum = 10 * sum + x % 10;
+		x = x / 10;	
+	}
+	if (sum == temp)
+		return true;
+	else
+		return false; 
+    }
+};
