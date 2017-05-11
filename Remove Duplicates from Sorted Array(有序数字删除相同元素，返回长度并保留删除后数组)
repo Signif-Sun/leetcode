@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+	int removeDuplicates(vector<int>& nums) {
+		int count = 0;
+		int n = nums.size();
+		vector<int> newNums;
+		for (int i = 1; i < n; i++) {
+			if (nums[i] == nums[i - 1]) 
+				count++;
+			else 
+				nums[i - count] = nums[i];
+		}
+        //remain the new array
+        //nums.erase(nums.end()-count,nums.end());
+		for (int i = 0; i < n - count; i++) {
+			newNums.push_back(nums[i]);
+		}
+		//return newNums;
+		return n - count;
+	}
+};
