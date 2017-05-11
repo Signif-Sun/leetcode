@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int count = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(val == nums[i]){
+                count++;
+            }
+            else
+                nums[i-count] = nums[i];
+        }
+        // return the new array length
+        return nums.size()-count;
+    }
+};
