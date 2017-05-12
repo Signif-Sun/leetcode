@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+
+using namespace std;
+
+
+class Solution {
+public:
+	int lengthOfLastWord(string s) {
+		vector<char> res;
+		for (auto rbeg = s.rbegin(); rbeg != s.rend(); rbeg++) {
+			if (*rbeg != ' ') {
+				res.push_back(*rbeg);
+			}
+                        //the condition is that if encounter two space,the code will break immedaitely
+			if (*rbeg == ' ' &&  res.size() != 0) {
+				break;
+			}
+		}
+		return res.size();
+	}
+};
