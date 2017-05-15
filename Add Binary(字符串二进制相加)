@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Solution
+{
+public:
+	string addBinary(string a, string b)
+	{
+		string s = "";
+
+		int c = 0, i = a.size() - 1, j = b.size() - 1;
+		while (i >= 0 || j >= 0 || c > 0)
+		{
+			//+= priority is lower than >= ,this is the key point in this loop
+			c += i >= 0 ? a[i--] - '0' : 0;
+			//cout << "c1--" << c << endl;
+			c += j >= 0 ? b[j--] - '0' : 0;
+			//cout << "c2--" << c << endl;
+			s = char(c % 2 + '0') + s;
+			//cout << "c3--" << c << endl;
+			c /= 2;
+		}
+
+		return s;
+	}
+};
