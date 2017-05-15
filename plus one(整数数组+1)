@@ -1,0 +1,27 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+
+vector<int> plusone(vector<int> digits)
+{
+	int n = digits.size();
+	for (int i = n - 1; i >= 0; --i)
+	{
+		if (digits[i] == 9)
+		{
+			digits[i] = 0;
+		}
+                //if the vector is not similar to 9999, it will halfway return 
+		else
+		{
+			digits[i]++;
+			return digits;
+		}
+	}
+	digits[0] = 1;
+	digits.push_back(0);
+	return digits;
+
+}
